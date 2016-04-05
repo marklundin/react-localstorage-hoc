@@ -1,7 +1,7 @@
 
 
 /*
-    This is a higher order function that wraps a component with functionality
+    A higher order function that wraps a component with functionality
     that save's it's state to local storage. This means the components state
     will persist across page refreshes under the same domain and rules of localStorage.
 
@@ -37,9 +37,9 @@ let WrapWithLocalStorate = Component => {
     // Return Component if no localStorage is available
     if( !hasLocalStorage ) return Component
 
-    let name = component.displayName || component.constructor.displayName || component.constructor.name
+    let name = Component.displayName || Component.constructor.displayName || Component.constructor.name
 
-    class LocalStorageComponent extends component {
+    class LocalStorageComponent extends Component {
 
         componentWillMount(){
             this.setState( JSON.parse( localStorage.getItem( name )))
@@ -58,4 +58,4 @@ let WrapWithLocalStorate = Component => {
 }
 
 
-export default WrapWithLocalStorate
+export default  WrapWithLocalStorate
