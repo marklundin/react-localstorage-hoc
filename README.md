@@ -8,11 +8,8 @@ A higher order function that wrap react components and saves it's state in persi
 import persist from 'react-localstorage-hoc'
 
 class Counter extends React.Component{
-  
   render(){
-    
     let { counter } = this.state
-  
     return <div 
       onClick={ e => this.setState({counter:counter+1 })}>{'Clicked ' + counter + ' times'}</div>
   }
